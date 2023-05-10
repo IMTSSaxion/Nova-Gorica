@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using Vuforia;
+using Vuforia;
 
-//[RequireComponent(typeof(DefaultObserverEventHandler))]
+[RequireComponent(typeof(DefaultObserverEventHandler))]
 public class ScanPicture : MonoBehaviour
 {
     public void HandlePictureScan()
