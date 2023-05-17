@@ -12,6 +12,10 @@ public class GatherData : MonoBehaviour
     private DateTime dateTime;
     private Vector2 geoLocation;
 
+    private const string dateTimeKEY = "DateTime";
+    private const string geoLocationXKEY = "GeoLocX";
+    private const string geoLocationYKEY = "GeoLocY";
+
     public static GatherData Instance { get; private set; }
 
     private void Awake()
@@ -32,6 +36,7 @@ public class GatherData : MonoBehaviour
     {
         dateTime = DateTime.Now;
         Debug.Log("dateTime: " + dateTime);
+        PlayerPrefs.SetString(dateTimeKEY, dateTime.ToString());
     }
 
     public IEnumerator GetLocation()
@@ -71,14 +76,9 @@ public class GatherData : MonoBehaviour
             geoLocation.x = Input.location.lastData.longitude;
             geoLocation.y = Input.location.lastData.latitude;
             text.text = $"Longitude: {geoLocation.x}\nLatitude: {geoLocation.y}";
+
+            PlayerPrefs.SetFloat(geoLocationXKEY, geoLocation.x);
+            PlayerPrefs.SetFloat(geoLocationYKEY, geoLocation.y);
         }
-    }
-
-    /// <summary>
-    /// Saves gathered data on a local file
-    /// </summary>
-    private void SaveDataLocal()
-    {
-
     }
 }
