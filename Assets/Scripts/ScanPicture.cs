@@ -8,6 +8,7 @@ public class ScanPicture : MonoBehaviour
 {
     public void HandlePictureScan()
     {
-        Debug.Log("Send data to database");
+        Debug.Log("Sending data to database");
+        GatherData.Instance.GetAllData();
     }
 }
